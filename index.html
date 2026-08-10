@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PPDS | Creating Clarity for Better Preparation</title>
+  <meta name="description" content="Professional Parenting Documentation System (PPDS) helps separated and divorced parents organize parenting documentation, communications, evidence, and case information in one place." />
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --panel: #f7f8fa;
+      --accent: #315f62;
+      --accent-dark: #24484a;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(31, 41, 51, 0.08);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.94); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(229,231,235,.85);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; }
+    .mark { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent); color: white; font-size: 14px; }
+    nav { display: flex; align-items: center; gap: 24px; color: #475467; font-size: 14px; }
+    .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 11px; font-weight: 700; transition: .2s ease; }
+    .nav-cta { padding: 10px 16px; background: var(--ink); color: white; }
+    .button { padding: 13px 19px; border: 1px solid var(--line); }
+    .button.primary { background: var(--accent); color: white; border-color: var(--accent); }
+    .button.primary:hover { background: var(--accent-dark); }
+    .button.secondary:hover { background: var(--panel); }
+    .hero { padding: 92px 0 80px; background: linear-gradient(180deg, #fbfcfc 0%, #fff 100%); }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 64px; align-items: center; }
+    .eyebrow { color: var(--accent); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    h1 { font-size: clamp(44px, 6vw, 72px); line-height: 1.02; letter-spacing: -.055em; margin: 16px 0 22px; max-width: 760px; }
+    .lead { font-size: 20px; color: var(--muted); max-width: 650px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .trust { margin-top: 25px; font-size: 13px; color: #7b8492; }
+    .product-card { background: white; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); overflow: hidden; }
+    .product-top { padding: 16px 18px; border-bottom: 1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+    .dots { display:flex; gap:6px; } .dot { width:8px; height:8px; background:#d0d5dd; border-radius:999px; }
+    .app { display:grid; grid-template-columns: 130px 1fr; min-height: 410px; }
+    .side { background:#24383a; color:white; padding:20px 14px; }
+    .side .logo { font-weight:800; margin-bottom:24px; }
+    .side div:not(.logo) { font-size:11px; opacity:.78; padding:8px 0; }
+    .main { background:#f7f8fa; padding:26px; }
+    .main h3 { margin: 0 0 5px; font-size: 21px; }
+    .main p { margin:0; font-size:12px; color:#7a8490; }
+    .tiles { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:20px; }
+    .tile { background:white; border:1px solid #e4e7ec; border-radius:13px; padding:16px; min-height:95px; }
+    .tile strong { font-size:12px; display:block; margin-bottom:5px; }
+    .tile span { font-size:10px; color:#89919c; }
+    section { padding: 84px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    h2 { font-size: clamp(32px, 4vw, 48px); line-height:1.1; letter-spacing:-.035em; margin: 10px 0 16px; }
+    .section-head p { color:var(--muted); font-size:18px; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .feature { border:1px solid var(--line); border-radius:var(--radius); padding:26px; background:white; }
+    .icon { width:42px; height:42px; border-radius:12px; background:#edf4f3; display:grid; place-items:center; margin-bottom:18px; color:var(--accent); font-weight:800; }
+    .feature h3 { margin:0 0 8px; font-size:18px; }
+    .feature p { color:var(--muted); margin:0; font-size:15px; }
+    .problem { background:var(--panel); }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:center; }
+    .quote-card { background:white; border:1px solid var(--line); padding:34px; border-radius:22px; box-shadow:var(--shadow); }
+    .quote-card p { font-size:20px; margin:0; }
+    .quote-card small { display:block; color:var(--muted); margin-top:18px; }
+    .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .step { padding:22px; background:var(--panel); border-radius:17px; }
+    .step b { display:block; color:var(--accent); margin-bottom:8px; }
+    .professional { background:#203537; color:white; }
+    .professional p { color:#c9d1d1; }
+    .professional .button.secondary { color:white; border-color:#577072; }
+    .cta-box { border:1px solid var(--line); border-radius:26px; padding:54px; text-align:center; background:linear-gradient(180deg,#fff,#f8faf9); }
+    .cta-box p { color:var(--muted); max-width:670px; margin:0 auto 26px; }
+    footer { border-top:1px solid var(--line); padding:34px 0 48px; color:#7c8794; font-size:13px; }
+    .footer-grid { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    @media (max-width: 850px) {
+      nav a:not(.nav-cta) { display:none; }
+      .hero-grid, .split { grid-template-columns:1fr; }
+      .features { grid-template-columns:1fr 1fr; }
+      .steps { grid-template-columns:1fr 1fr; }
+      .hero { padding-top:64px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width:min(100% - 28px,1120px); }
+      .features, .steps { grid-template-columns:1fr; }
+      .cta-box { padding:36px 22px; }
+      .app { grid-template-columns:100px 1fr; }
+      .main { padding:18px; }
+      .tiles { grid-template-columns:1fr; }
+      .nav { min-height:68px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mark">PPDS</span><span>Professional Parenting Documentation System</span></a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#professionals">For Professionals</a>
+      <a class="nav-cta" href="#beta">Join the Beta</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Creating Clarity for Better Preparation</div>
+        <h1>Parenting documentation, finally organized.</h1>
+        <p class="lead">PPDS helps separated and divorced parents document important events, organize communications and evidence, and prepare clear information for the professionals supporting their family.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#beta">Join the Beta Waitlist</a>
+          <a class="button secondary" href="#how">See How PPDS Works</a>
+        </div>
+        <div class="trust">Built to organize information — not inflame conflict.</div>
+      </div>
+      <div class="product-card" aria-label="PPDS product preview">
+        <div class="product-top"><span style="font-size:12px;font-weight:700">PPDS Dashboard</span><div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>
+        <div class="app">
+          <div class="side"><div class="logo">PPDS</div><div>Home</div><div>New Entry</div><div>Communications</div><div>Evidence Vault</div><div>Case Builder</div><div>Reminders</div></div>
+          <div class="main"><h3>Good morning.</h3><p>Your parenting documentation, organized in one place.</p><div class="tiles"><div class="tile"><strong>New Event</strong><span>Document an event while details are fresh.</span></div><div class="tile"><strong>Communications</strong><span>Organize messages and supporting context.</span></div><div class="tile"><strong>Evidence Vault</strong><span>Store supporting files with your records.</span></div><div class="tile"><strong>Case Builder</strong><span>Prepare organized information for review.</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem">
+    <div class="wrap split">
+      <div>
+        <div class="eyebrow">The Problem</div>
+        <h2>Important information gets scattered everywhere.</h2>
+        <p style="color:var(--muted);font-size:18px">Texts. Emails. School updates. Medical records. Photos. Parenting plans. Notes about exchanges and events. When information lives across phones, inboxes, folders, and memory, creating a clear record becomes exhausting.</p>
+        <p style="color:var(--muted)">PPDS is designed to give parents one structured place to document, preserve, organize, and prepare that information.</p>
+      </div>
+      <div class="quote-card"><p>“I didn't realize how difficult parenting documentation could become until I had to manage it myself. PPDS grew from the need for a simpler, more organized way to preserve important information.”</p><small>— Founder story</small></div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Core Features</div><h2>One system. A clearer record.</h2><p>PPDS brings the information parents already manage into a more structured workflow.</p></div>
+      <div class="features">
+        <div class="feature"><div class="icon">01</div><h3>Event Documentation</h3><p>Record important parenting events and observations while preserving the original entry date.</p></div>
+        <div class="feature"><div class="icon">02</div><h3>Clarity Assistant</h3><p>Transform emotional or unstructured notes into calmer, fact-focused language while preserving the original entry.</p></div>
+        <div class="feature"><div class="icon">03</div><h3>Communications Hub</h3><p>Keep relevant emails, texts, screenshots, and context connected to the information they support.</p></div>
+        <div class="feature"><div class="icon">04</div><h3>Evidence Vault</h3><p>Centralize uploaded records, photos, orders, documents, and supporting material.</p></div>
+        <div class="feature"><div class="icon">05</div><h3>Visual Timelines</h3><p>See documentation chronologically and move from a timeline entry directly to its supporting record.</p></div>
+        <div class="feature"><div class="icon">06</div><h3>Case Builder</h3><p>Prepare selected information in an organized format for attorneys, therapists, doctors, or other authorized professionals.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="problem">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">How It Works</div><h2>Document less chaotically. Prepare more clearly.</h2></div>
+      <div class="steps"><div class="step"><b>1. Capture</b>Record an event, communication, or supporting item.</div><div class="step"><b>2. Organize</b>Keep information connected by date, category, and supporting evidence.</div><div class="step"><b>3. Clarify</b>Use Clarity Assistant when you want a more neutral, fact-focused version.</div><div class="step"><b>4. Prepare</b>Select the relevant records and build an organized case summary.</div></div>
+    </div>
+  </section>
+
+  <section id="professionals" class="professional">
+    <div class="wrap split">
+      <div><div class="eyebrow" style="color:#9fc0bd">For Professionals</div><h2>Help clients arrive better organized.</h2><p style="font-size:18px">PPDS is being designed to help parents prepare relevant information before it reaches attorneys, therapists, medical providers, and other professionals — reducing the time spent reconstructing scattered records.</p><a class="button secondary" href="#beta">Professional Interest</a></div>
+      <div class="quote-card" style="background:#294547;border-color:#3c595b;box-shadow:none"><p style="color:white">Professional Access is planned to allow authorized professionals to review organized case information directly, with the parent's permission.</p><small style="color:#b9c9ca">Planned PPDS capability</small></div>
+    </div>
+  </section>
+
+  <section id="beta">
+    <div class="wrap">
+      <div class="cta-box"><div class="eyebrow">PPDS Beta</div><h2>Help shape a better way to document.</h2><p>PPDS is currently in development. We're preparing for beta testing with parents and professionals who understand the challenges of managing important parenting information across two households.</p><a class="button primary" href="mailto:hello@example.com?subject=PPDS%20Beta%20Interest">Join the Beta Waitlist</a><div class="trust">Replace the temporary email address before publishing.</div></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-grid"><span>© 2026 Professional Parenting Documentation System (PPDS)</span><span>Creating Clarity for Better Preparation</span></div></footer>
+</body>
+</html>
