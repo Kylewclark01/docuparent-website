@@ -544,6 +544,333 @@ footer{background:#00202b;color:#fff;padding:28px 0}
   .file-stack{grid-template-columns:repeat(2,1fr)}
 }
 
+
+/* ===== CASE BUILDER REPORT PREVIEW ===== */
+.case-report-preview{margin-top:20px;background:#fff;border:1px solid #dce5e7;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(16,49,58,.035)}
+.case-report-title{color:#315f62;font-weight:900;font-size:17px;margin-bottom:12px}
+.case-report-table{width:100%;border-collapse:collapse;table-layout:fixed}
+.case-report-table th{text-align:left;color:#64767d;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:0 8px 8px;border-bottom:1px solid #dfe7e9}
+.case-report-table td{vertical-align:top;padding:10px 8px;border-bottom:1px solid #edf1f2;color:#314950;font-size:12px;line-height:1.4}
+.case-report-table tr:last-child td{border-bottom:0}
+.case-report-table .date{width:15%;font-weight:800;color:#24484a}
+.case-report-table .summary{width:34%}
+.case-report-table .impact{width:26%}
+.case-report-table .reference{width:25%;font-weight:800;color:#315f62}
+.case-report-foot{margin-top:14px;padding-top:12px;border-top:1px solid #e4eaec;color:#6b7c82;font-size:11px;line-height:1.45}
+@media(max-width:760px){
+.case-report-table,.case-report-table thead,.case-report-table tbody,.case-report-table tr,.case-report-table th,.case-report-table td{display:block;width:100%!important}
+.case-report-table thead{display:none}
+.case-report-table tr{padding:10px 0;border-bottom:1px solid #e7edef}
+.case-report-table td{border-bottom:0;padding:3px 0}
+.case-report-table td:before{display:inline-block;min-width:84px;margin-right:7px;color:#7a8a90;font-size:10px;font-weight:800;text-transform:uppercase}
+.case-report-table .date:before{content:"Date"}
+.case-report-table .summary:before{content:"Summary"}
+.case-report-table .impact:before{content:"Impact"}
+.case-report-table .reference:before{content:"Reference"}
+}
+
+
+.case-category-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 16px}
+.case-category-tab{padding:7px 10px;border:1px solid #d7e3e5;border-radius:999px;background:#f5f9f9;color:#315f62;font-size:10px;font-weight:900}
+.case-category-tab.active{background:#315f62;color:#fff}
+.case-category-summary{margin:0 0 14px;color:#60737a;font-size:11px;line-height:1.45}
+.case-other-groups{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.case-group-chip{border:1px solid #dce5e7;border-radius:11px;padding:11px;background:#f9fbfb}
+.case-group-chip b{display:block;color:#24484a;font-size:11px;margin-bottom:4px}
+.case-group-chip span{color:#6b7c82;font-size:9px;line-height:1.35}
+@media(max-width:760px){.case-other-groups{grid-template-columns:1fr}}
+
+
+/* ===== EVIDENCE VAULT MINIATURE EXAMPLES ===== */
+.evidence-examples{
+  margin-top:22px;
+  padding-top:20px;
+  border-top:1px solid #e2e9eb;
+}
+.evidence-examples-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-end;
+  margin-bottom:14px;
+}
+.evidence-examples-head h4{
+  margin:0;
+  color:#173e46;
+  font-size:16px;
+}
+.evidence-examples-head p{
+  margin:3px 0 0;
+  color:#6b7c82;
+  font-size:11px;
+}
+.evidence-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.evidence-mini{
+  border:1px solid #dce5e7;
+  border-radius:13px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 5px 15px rgba(16,49,58,.035);
+}
+.evidence-preview{
+  height:118px;
+  background:#f3f7f7;
+  border-bottom:1px solid #e1e8ea;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.evidence-meta{padding:11px 12px 12px}
+.evidence-meta b{
+  display:block;
+  color:#173e46;
+  font-size:11px;
+  margin-bottom:4px;
+}
+.evidence-meta small{
+  display:block;
+  color:#718188;
+  font-size:9px;
+  line-height:1.4;
+}
+.evidence-tag{
+  display:inline-block;
+  margin-top:8px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:#edf5f5;
+  color:#315f62;
+  font-size:8px;
+  font-weight:900;
+}
+
+/* Text message miniature */
+.msg-phone{
+  width:76px;height:96px;background:#fff;border:2px solid #496c71;border-radius:10px;
+  padding:9px 6px 5px;position:relative;
+}
+.msg-phone:before{
+  content:"";position:absolute;top:4px;left:29px;width:17px;height:2px;background:#a9b9bc;border-radius:2px;
+}
+.msg-bubble{height:10px;border-radius:7px;margin:7px 0;width:80%}
+.msg-bubble.left{background:#e2eaec;margin-right:auto}
+.msg-bubble.right{background:#c9e2e2;margin-left:auto}
+.msg-bubble.short{width:58%}
+
+/* Document miniatures */
+.mini-doc{
+  width:76px;height:94px;background:#fff;border:1px solid #b9c9cc;border-radius:4px;
+  padding:10px 8px;box-shadow:0 2px 5px rgba(16,49,58,.06);
+}
+.doc-title{height:7px;width:70%;background:#315f62;border-radius:2px;margin-bottom:9px}
+.doc-line{height:3px;background:#c9d4d6;border-radius:2px;margin:5px 0}
+.doc-line.short{width:63%}
+.doc-box{height:20px;border:1px solid #d2dcde;border-radius:2px;margin-top:8px}
+.doc-mark{
+  width:25px;height:25px;border-radius:50%;border:2px solid #b7c8cb;
+  margin:4px auto 8px;position:relative;
+}
+.doc-mark:after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#315f62;font-size:13px;font-weight:900}
+
+/* School record miniature */
+.school-sheet{
+  width:82px;height:94px;background:#fff;border:1px solid #b9c9cc;border-radius:4px;
+  padding:9px 7px;
+}
+.school-head{display:flex;gap:5px;align-items:center;margin-bottom:7px}
+.school-icon{width:15px;height:15px;border:2px solid #315f62;border-radius:3px}
+.school-name{height:5px;width:44px;background:#315f62;border-radius:2px}
+.school-row{display:grid;grid-template-columns:1.5fr .6fr .6fr;gap:3px;margin-top:5px}
+.school-row i{display:block;height:4px;background:#d0dbdd;border-radius:1px}
+.school-row i:last-child{background:#b8d5d5}
+
+@media(max-width:950px){
+  .evidence-mini-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .evidence-mini-grid{grid-template-columns:1fr}
+}
+
+
+/* ===== FOR PROFESSIONALS ===== */
+.professionals-section{
+  padding:58px 0;
+  border-top:1px solid #edf2f3;
+  background:#fff;
+}
+.professionals-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:28px;
+  align-items:stretch;
+  margin-top:28px;
+}
+.professional-card{
+  border:1px solid #dde5e7;
+  border-radius:18px;
+  background:#fff;
+  padding:26px;
+  box-shadow:0 8px 24px rgba(16,49,58,.04);
+}
+.professional-card h3{
+  margin:0 0 8px;
+  color:var(--ink);
+  font-size:22px;
+}
+.professional-card p{
+  margin:0;
+  color:#5d7077;
+  font-size:14px;
+  line-height:1.55;
+}
+.professional-flow{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:22px;
+  align-items:center;
+}
+.professional-step{
+  min-height:108px;
+  border:1px solid #dce5e7;
+  border-radius:14px;
+  background:#f8fbfb;
+  padding:14px 10px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.professional-step svg{
+  width:28px;
+  height:28px;
+  color:#315f62;
+  margin:0 auto 8px;
+}
+.professional-step b{
+  display:block;
+  color:#24484a;
+  font-size:11px;
+  line-height:1.35;
+}
+.professional-arrow{
+  display:none;
+}
+.quick-guide{
+  margin-top:18px;
+  border:1px solid #dce5e7;
+  border-radius:14px;
+  overflow:hidden;
+}
+.quick-guide-head{
+  background:#f2f7f7;
+  padding:12px 14px;
+  color:#315f62;
+  font-weight:900;
+  font-size:13px;
+  border-bottom:1px solid #dce5e7;
+}
+.quick-guide-row{
+  display:grid;
+  grid-template-columns:1fr .7fr .8fr;
+  gap:10px;
+  padding:11px 14px;
+  border-bottom:1px solid #edf1f2;
+  font-size:10px;
+  color:#586b72;
+}
+.quick-guide-row:last-child{border-bottom:0}
+.quick-guide-row b{color:#24484a}
+.planned-badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#eef5f5;
+  color:#315f62;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.access-list{
+  display:grid;
+  gap:10px;
+  margin-top:18px;
+}
+.access-item{
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:10px;
+  align-items:start;
+}
+.access-icon{
+  width:32px;height:32px;border-radius:9px;
+  background:#eef5f5;color:#315f62;
+  display:grid;place-items:center;
+}
+.access-icon svg{width:18px;height:18px}
+.access-item b{
+  display:block;
+  color:#24484a;
+  font-size:13px;
+  margin-bottom:2px;
+}
+.access-item span{
+  color:#64767d;
+  font-size:12px;
+  line-height:1.4;
+}
+.professional-note{
+  margin-top:18px;
+  padding:13px 14px;
+  border-left:4px solid #315f62;
+  background:#f7fafa;
+  border-radius:8px;
+  color:#5c6f76;
+  font-size:12px;
+  line-height:1.5;
+}
+@media(max-width:1000px){
+  .professionals-grid{grid-template-columns:1fr}
+  .professional-flow{grid-template-columns:1fr}
+}
+
+
+/* ===== TRUST STRIP FOUR-COLUMN FIX ===== */
+.trust-strip{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow:hidden !important;
+}
+.trust-bottom{
+  min-width:0 !important;
+  width:auto !important;
+  box-sizing:border-box !important;
+}
+.trust-bottom:last-child{
+  border-right:0 !important;
+}
+.trust-bottom div{
+  min-width:0 !important;
+}
+.trust-bottom span{
+  white-space:normal !important;
+}
+@media(max-width:900px){
+  .trust-strip{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+@media(max-width:560px){
+  .trust-strip{grid-template-columns:1fr !important;}
+}
+
 </style>
 </head>
 <body>
@@ -591,23 +918,41 @@ footer{background:#00202b;color:#fff;padding:28px 0}
       <div class="trust">
         <div class="trust-card">
           <div class="trust-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M12 8v7"/><path d="M9.5 11.5h5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="8"/>
+              <path d="M12 7v5l3 2"/>
+            </svg>
           </div>
-          <div><b>Secure.</b><span>Protected storage for important records.</span></div>
+          <div>
+            <b>Saves Time.</b>
+            <span>Spend less time searching through texts, emails, screenshots, records, and notes.</span>
+          </div>
         </div>
 
         <div class="trust-card">
           <div class="trust-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2c0-3 2.5-5 6-5s6 2 6 5v2"/><rect x="15" y="7" width="6" height="7" rx="1.5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="8"/>
+              <path d="M14.5 8.5c-.8-.6-1.7-.9-2.7-.9-1.7 0-3 .8-3 2s1.1 1.8 3.2 2.2c2 .4 3.1 1 3.1 2.3 0 1.4-1.4 2.4-3.3 2.4-1.2 0-2.4-.4-3.3-1.1"/>
+              <path d="M12 6v12"/>
+            </svg>
           </div>
-          <div><b>Private.</b><span>Your information stays private and organized.</span></div>
+          <div>
+            <b>Saves Money.</b>
+            <span>Organize observations and supporting evidence before professional review—helping reduce the time and cost of sorting through scattered documentation.</span>
+          </div>
         </div>
 
         <div class="trust-card">
           <div class="trust-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.4-7-10a4 4 0 017-2.5A4 4 0 0119 11c0 5.6-7 10-7 10z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 21s-7-4.4-7-10a4 4 0 017-2.5A4 4 0 0119 11c0 5.6-7 10-7 10z"/>
+            </svg>
           </div>
-          <div><b>Built for parents.</b><span>Designed around real documentation needs.</span></div>
+          <div>
+            <b>Brings Peace of Mind.</b>
+            <span>Know your important records are documented, organized, and there when you need them.</span>
+          </div>
         </div>
       </div>
 
@@ -679,7 +1024,7 @@ footer{background:#00202b;color:#fff;padding:28px 0}
     <div class="reassure-block">
       <div class="quote">
         “DocuParent has given me so much peace of mind. I finally feel organized and prepared.”
-        <strong>— Beta Parent</strong>
+        <strong>— Relieved Parent</strong>
       </div>
     </div>
 
@@ -689,23 +1034,53 @@ footer{background:#00202b;color:#fff;padding:28px 0}
 <section class="wrap trust-row">
 
   <div class="trust-bottom">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-    <div><b>Bank-Level Security</b><span>Your data is encrypted and protected.</span></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+      <rect x="5" y="10" width="14" height="10" rx="2"/>
+      <path d="M8 10V7a4 4 0 018 0v3"/>
+    </svg>
+    <div>
+      <b>Bank-Level Security</b>
+      <span>Your data is encrypted and protected.</span>
+    </div>
   </div>
 
   <div class="trust-bottom">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20v-2c0-3 2.5-5 6-5s6 2 6 5v2"/><path d="M14 15c3.5 0 6 1.5 6 4v1"/></svg>
-    <div><b>Parent-Built</b><span>Designed by parents who understand.</span></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+      <circle cx="8" cy="8" r="3"/>
+      <circle cx="17" cy="9" r="2.5"/>
+      <path d="M2 20v-2c0-3 2.5-5 6-5s6 2 6 5v2"/>
+      <path d="M14 15c3.5 0 6 1.5 6 4v1"/>
+    </svg>
+    <div>
+      <b>Parent-Built</b>
+      <span>Designed by parents who understand.</span>
+    </div>
   </div>
 
   <div class="trust-bottom">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6z"/><path d="M9 12l2 2 4-5"/></svg>
-    <div><b>Privacy Focused</b><span>Your information stays private and secure.</span></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+      <path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6z"/>
+      <path d="M9 12l2 2 4-5"/>
+    </svg>
+    <div>
+      <b>Privacy Focused</b>
+      <span>Your information stays private and secure.</span>
+    </div>
   </div>
 
   <div class="trust-bottom">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 18a4 4 0 010-8 6 6 0 0111.5-1.5A4.5 4.5 0 0118 18z"/><rect x="14" y="14" width="7" height="6" rx="1"/></svg>
-    <div><b>Accessible Anywhere</b><span>Access your records anytime, anywhere.</span></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+      <path d="M4 19h16"/>
+      <path d="M6 16l4-5 3 3 5-8"/>
+      <circle cx="6" cy="16" r="1.3"/>
+      <circle cx="10" cy="11" r="1.3"/>
+      <circle cx="13" cy="14" r="1.3"/>
+      <circle cx="18" cy="6" r="1.3"/>
+    </svg>
+    <div>
+      <b>Built for the Journey</b>
+      <span>Designed to organize documentation from the first entry through years of parenting records.</span>
+    </div>
   </div>
 
 </section>
@@ -903,39 +1278,233 @@ footer{background:#00202b;color:#fff;padding:28px 0}
 
         <div class="vault-arrow">↓</div>
         <div class="vault-box">Evidence Vault — organized and easy to find</div>
+<div class="evidence-examples">
+  <div class="evidence-examples-head">
+    <div>
+      <h4>Organized evidence at a glance</h4>
+      <p>Preview the record, see what it is, and understand where it connects to your documentation.</p>
+    </div>
+  </div>
+
+  <div class="evidence-mini-grid">
+
+    <div class="evidence-mini">
+      <div class="evidence-preview">
+        <div class="msg-phone">
+          <div class="msg-bubble left"></div>
+          <div class="msg-bubble right"></div>
+          <div class="msg-bubble left short"></div>
+          <div class="msg-bubble right short"></div>
+          <div class="msg-bubble left"></div>
+        </div>
+      </div>
+      <div class="evidence-meta">
+        <b>Text Message Screenshot</b>
+        <small>Communication · Oct. 12, 2026</small>
+        <span class="evidence-tag">Linked to 2 entries</span>
+      </div>
+    </div>
+
+    <div class="evidence-mini">
+      <div class="evidence-preview">
+        <div class="school-sheet">
+          <div class="school-head"><span class="school-icon"></span><span class="school-name"></span></div>
+          <div class="school-row"><i></i><i></i><i></i></div>
+          <div class="school-row"><i></i><i></i><i></i></div>
+          <div class="school-row"><i></i><i></i><i></i></div>
+          <div class="school-row"><i></i><i></i><i></i></div>
+          <div class="school-row"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="evidence-meta">
+        <b>School Attendance Record.pdf</b>
+        <small>School · Sept. 2026</small>
+        <span class="evidence-tag">Linked to 3 entries</span>
+      </div>
+    </div>
+
+    <div class="evidence-mini">
+      <div class="evidence-preview">
+        <div class="mini-doc">
+          <div class="doc-mark"></div>
+          <div class="doc-title"></div>
+          <div class="doc-line"></div>
+          <div class="doc-line"></div>
+          <div class="doc-line short"></div>
+        </div>
+      </div>
+      <div class="evidence-meta">
+        <b>Appointment Summary.pdf</b>
+        <small>Medical &amp; Care · Nov. 3, 2026</small>
+        <span class="evidence-tag">Linked to 1 entry</span>
+      </div>
+    </div>
+
+    <div class="evidence-mini">
+      <div class="evidence-preview">
+        <div class="mini-doc">
+          <div class="doc-title" style="width:82%"></div>
+          <div class="doc-line"></div>
+          <div class="doc-line"></div>
+          <div class="doc-line short"></div>
+          <div class="doc-box"></div>
+          <div class="doc-line short"></div>
+        </div>
+      </div>
+      <div class="evidence-meta">
+        <b>Parenting Plan.docx</b>
+        <small>Court / Orders · Current</small>
+        <span class="evidence-tag">Referenced by 4 entries</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
       </article>
 
       <article class="visual-card">
         <h3>Case Builder</h3>
-        <p>Bring selected records together into a clear timeline or summary for professional review.</p>
+        <p>Bring related events and observations together into a clear, organized summary that shows what happened, when it happened, and where the supporting detail can be found.</p>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">MAY 14 · 4:00 PM</div>
-            <div class="timeline-title">Parenting-time exchange documented</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">MAY 16 · 7:30 PM</div>
-            <div class="timeline-title">Communication added with screenshot</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">MAY 20 · 10:30 AM</div>
-            <div class="timeline-title">Medical appointment record attached</div>
-          </div>
-        </div>
+        <div class="case-report-preview">
+<div class="case-report-title">Example Case Summary</div>
+<div class="case-category-summary">Related entries can be grouped by issue so a parent or professional can see chronology, recurring observations, and supporting sources without searching through every record individually.</div>
+<div class="case-category-tabs">
+<span class="case-category-tab active">Communication Access</span>
+<span class="case-category-tab">Transition Consistency</span>
+<span class="case-category-tab">Parenting Plan Compliance</span>
+<span class="case-category-tab">Child Well-Being</span>
+<span class="case-category-tab">School &amp; Activities</span>
+<span class="case-category-tab">Medical &amp; Care</span>
+</div>
+<div class="case-report-title" style="font-size:14px;margin-top:6px;">Communication Access</div>
+<table class="case-report-table">
+<thead><tr><th>Date</th><th>Event / Observation</th><th>Documented Effect</th><th>Reference</th></tr></thead>
+<tbody>
+<tr><td class="date">09/14/26</td><td class="summary">Scheduled evening call began substantially later than planned.</td><td class="impact">Available conversation time was reduced.</td><td class="reference">Full Entry — Page 14</td></tr>
+<tr><td class="date">09/28/26</td><td class="summary">Background activity repeatedly interrupted a scheduled video call.</td><td class="impact">Conversation was brief and difficult to maintain.</td><td class="reference">Full Entry — Page 21</td></tr>
+<tr><td class="date">10/12/26</td><td class="summary">Two call attempts were documented before contact was completed.</td><td class="impact">Communication occurred later in the evening.</td><td class="reference">Full Entry — Page 33</td></tr>
+<tr><td class="date">10/26/26</td><td class="summary">Scheduled call occurred in a shared environment with frequent interruptions.</td><td class="impact">Limited opportunity for focused conversation.</td><td class="reference">Full Entry — Page 46</td></tr>
+</tbody></table>
+<div class="case-other-groups">
+<div class="case-group-chip"><b>Transition Consistency</b><span>5 related entries · Pages 18–57</span></div>
+<div class="case-group-chip"><b>Parenting Plan Compliance</b><span>3 related entries · Pages 31–64</span></div>
+<div class="case-group-chip"><b>Child Well-Being</b><span>6 related observations · Pages 22–71</span></div>
+</div>
+<div class="case-report-foot">Illustrative example only. Names, dates, events, descriptions, page numbers, and circumstances shown here are fictional and are not associated with any actual family or case.</div>
+</div>
 
         <div class="recipient-row">
           <span class="recipient">Attorney</span>
           <span class="recipient">Therapist</span>
           <span class="recipient">Doctor</span>
-          <span class="recipient">Court / Professional Review</span>
+          <span class="recipient">Professional Review</span>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section id="professionals" class="visual-section alt">
+
+<section id="professionals" class="professionals-section">
+  <div class="wrap">
+    <div class="section-kicker">For Professionals</div>
+    <h2 class="section-title">Start with the summary. Go deeper when you need to.</h2>
+    <p class="section-intro">
+      PPDS is designed to help attorneys, therapists, medical providers, and other authorized professionals review parent-provided documentation more efficiently—without beginning with hundreds of disconnected screenshots, emails, files, and notes.
+    </p>
+
+    <div class="professionals-grid">
+
+      <div class="professional-card">
+        <h3>Case Builder creates the quick-reference guide.</h3>
+        <p>
+          Related events and observations can be grouped by issue, organized chronologically, and cross-referenced to the complete entry and supporting evidence.
+        </p>
+
+        <div class="professional-flow">
+          <div class="professional-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+            <b>Parent documents events</b>
+          </div>
+          <div class="professional-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h6l2 2h10v10H3z"/><path d="M3 7V5h6l2 2"/></svg>
+            <b>PPDS organizes records</b>
+          </div>
+          <div class="professional-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+            <b>Case Builder groups issues</b>
+          </div>
+          <div class="professional-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3"/><path d="M5 20v-2c0-4 3-6 7-6s7 2 7 6v2"/></svg>
+            <b>Professional reviews summary</b>
+          </div>
+          <div class="professional-step">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+            <b>Source evidence is available</b>
+          </div>
+        </div>
+
+        <div class="quick-guide">
+          <div class="quick-guide-head">Example Quick Reference</div>
+          <div class="quick-guide-row">
+            <b>Communication Access</b>
+            <span>4 related entries</span>
+            <span>Pages 14–46</span>
+          </div>
+          <div class="quick-guide-row">
+            <b>Transition Consistency</b>
+            <span>5 related entries</span>
+            <span>Pages 18–57</span>
+          </div>
+          <div class="quick-guide-row">
+            <b>Child Well-Being</b>
+            <span>6 observations</span>
+            <span>Pages 22–71</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="professional-card">
+        <span class="planned-badge">Planned Feature</span>
+        <h3>Professional Access</h3>
+        <p>
+          Future versions of PPDS are planned to allow a parent to grant an authorized professional access to selected case information when deeper review is needed.
+        </p>
+
+        <div class="access-list">
+          <div class="access-item">
+            <div class="access-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6z"/></svg>
+            </div>
+            <div><b>Parent-controlled access</b><span>The parent chooses whether access is granted and what information is shared.</span></div>
+          </div>
+
+          <div class="access-item">
+            <div class="access-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h6l2 2h10v10H3z"/></svg>
+            </div>
+            <div><b>Evidence available when needed</b><span>A professional could move from the quick-reference summary to selected supporting files and complete entries.</span></div>
+          </div>
+
+          <div class="access-item">
+            <div class="access-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8"/></svg>
+            </div>
+            <div><b>Less back-and-forth</b><span>Organized access can reduce repeated requests for screenshots, documents, and explanations that are already stored in PPDS.</span></div>
+          </div>
+        </div>
+
+        <div class="professional-note">
+          Professional Access is a planned capability and is not currently represented as a live feature. The parent remains the owner of the case information and controls authorization.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="parenting-plan" class="visual-section alt">
   <div class="wrap">
     <div class="section-kicker">Parenting Plans & Orders</div>
     <h2 class="section-title">Keep the rules beside the records.</h2>
