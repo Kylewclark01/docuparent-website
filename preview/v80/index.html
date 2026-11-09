@@ -1,61 +1,42 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DocuParent | PPDS Compact Workspace Preview</title>
-<style>html,body{margin:0;padding:0;background:#f1f5fb}iframe{display:block;width:100%;border:0;min-height:100vh}#fallback{display:none;padding:20px;font:16px system-ui;color:#102442}</style></head>
-<body><div id="fallback">Preview could not load the existing homepage. <a href="/">Open DocuParent</a>.</div><iframe id="site" title="DocuParent website with proposed compact PPDS workspace" src="/"></iframe>
-<script>
-const frame=document.getElementById('site');
-function refreshHeight(){try{const d=frame.contentDocument;if(d)frame.style.height=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight)+'px'}catch(e){}}
-frame.addEventListener('load',()=>{
- try{
- const d=frame.contentDocument;
- const original=d.querySelector('.modern-demo');
- if(!original)throw new Error('Workspace section not found');
- const oldHow=d.querySelector('.modern-how');
- // Preserve existing top, bottom, imagery, beta form and all sections; replace only the demo block.
- const compact=d.createElement('section');compact.id='explore';compact.className='ppds-compact-demo';
- compact.innerHTML=`
- <div class="ppds-compact-head"><div class="ppds-compact-kicker">EXPLORE THE PPDS WORKSPACE</div><h2>See PPDS in Action</h2><p>Get a quick look at how PPDS helps you document, organize and prepare information.</p></div>
- <div class="ppds-compact-layout">
- <div class="ppds-compact-tabs" role="tablist" aria-label="Preview PPDS features">
- <button class="active" data-feature="Observations">🔭 Observations</button><button data-feature="Communications">📱 Communications</button><button data-feature="Evidence Vault">🗄️ Evidence Vault</button><button data-feature="Case Builder">💼 Case Builder</button>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loading DocuParent Preview…</title><style>body{font:16px system-ui;background:#f3f7fc;color:#0d2442;padding:25px}a{color:#1458bb}</style></head><body><p id="status">Loading the actual DocuParent website preview…</p><script>
+(async()=>{
+try{
+ const response=await fetch('/?preview_source=v80',{cache:'no-store'});
+ if(!response.ok)throw Error('Homepage returned '+response.status);
+ let page=await response.text();
+ const start=page.indexOf('<section class="modern-demo" id="explore">');
+ const end=page.indexOf('</section>',start);
+ if(start<0||end<0)throw Error('Expected PPDS workspace section not found');
+ const compact=`<section class="modern-demo" id="explore" style="padding:42px 18px;background:#f3f7fd">
+ <div style="max-width:1060px;margin:auto">
+ <div class="modern-kicker">INTERACTIVE WORKSPACE · COMPACT PREVIEW</div>
+ <h2 style="margin:10px 0 12px">Explore PPDS in Minutes</h2>
+ <p style="margin:0 0 22px;max-width:780px">A quick look at how PPDS helps you document, organize and prepare information—without scrolling through the full report.</p>
+ <div id="ppds-short-preview" style="display:grid;grid-template-columns:minmax(210px,310px) 1fr;gap:14px">
+ <div class="ppds-short-tabs" style="display:grid;gap:9px;align-content:start">
+ <button data-demo-feature="Observations" class="chosen">🔭 Observations</button>
+ <button data-demo-feature="Communications">📱 Communications</button>
+ <button data-demo-feature="Evidence Vault">🗄️ Evidence Vault</button>
+ <button data-demo-feature="Case Builder">💼 Case Builder</button>
  </div>
- <div class="ppds-compact-panel"><div class="ppds-compact-label">PPDS · Sample Workspace</div><div class="ppds-compact-panel-title" id="ppds-feature-title">Observations</div><p id="ppds-feature-copy">Record important moments, dates and details in one place.</p><div class="ppds-compact-record"><strong id="ppds-record-title">School Event · October 3</strong><span id="ppds-record-copy">Example observation with related supporting records.</span></div></div>
- </div>
- <a class="ppds-compact-cta" href="/demo.html">Explore the Full PPDS Workspace ↗</a>
- <p class="ppds-compact-foot">The complete demonstration opens separately, with fictional sample records and reports. <a href="#contact">Join the beta</a></p>`;
- original.replaceWith(compact);
- // The existing how-it-works section stays unchanged.
- const style=d.createElement('style');style.textContent=`
- .ppds-compact-demo{padding:50px 5% 58px;background:#f1f6fc;color:#0b2241;box-sizing:border-box}
- .ppds-compact-demo *{box-sizing:border-box}
- .ppds-compact-head{max-width:960px;margin:0 auto 24px;text-align:center}
- .ppds-compact-kicker{font-size:12px;letter-spacing:.14em;font-weight:800;color:#1455af}
- .ppds-compact-head h2{font-size:clamp(26px,3.5vw,40px);margin:9px 0;color:#0b2241}
- .ppds-compact-head p{font-size:16px;line-height:1.5;color:#45607d;margin:0}
- .ppds-compact-layout{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:16px;max-width:920px;margin:0 auto}
- .ppds-compact-tabs{display:grid;grid-template-columns:1fr;gap:9px}
- .ppds-compact-tabs button{padding:15px 18px;border-radius:10px;background:white;border:1px solid #cbdcf0;text-align:left;font-size:15px;font-weight:700;color:#153154;cursor:pointer}
- .ppds-compact-tabs button.active{background:#1e5cc4;color:white;border-color:#1e5cc4}
- .ppds-compact-panel{border-radius:14px;background:#fff;border:1px solid #cbdcf0;padding:24px;min-height:265px;box-shadow:0 7px 18px #122c5010}
- .ppds-compact-label{color:#4475b1;font-size:12px;font-weight:800;letter-spacing:.08em}
- .ppds-compact-panel-title{font-size:25px;font-weight:800;margin:12px 0}
- .ppds-compact-panel p{font-size:15px;color:#49617e;line-height:1.5}
- .ppds-compact-record{display:flex;flex-direction:column;gap:7px;padding:17px;background:#f2f7fe;border:1px solid #d4e4f8;border-radius:10px;margin-top:19px;font-size:14px}
- .ppds-compact-record span{color:#526a83}
- .ppds-compact-cta{display:block;max-width:450px;margin:25px auto 0;padding:16px;background:#1e5cc4;color:white!important;text-align:center;border-radius:10px;text-decoration:none!important;font-weight:800;font-size:16px}
- .ppds-compact-foot{text-align:center;color:#526b86;font-size:12px;margin-top:14px}
- .ppds-compact-foot a{color:#1e5cc4}
- @media(max-width:650px){.ppds-compact-demo{padding:34px 16px}.ppds-compact-layout{grid-template-columns:1fr}.ppds-compact-tabs{grid-template-columns:1fr 1fr;gap:8px}.ppds-compact-tabs button{font-size:12px;padding:12px 8px}.ppds-compact-panel{padding:18px;min-height:220px}.ppds-compact-head p{font-size:14px}}
- `;d.head.appendChild(style);
- const examples={
- 'Observations':['Record important moments, dates and details in one place.','School Event · October 3','Example observation with related supporting records.'],
- 'Communications':['Keep messages and conversations organized for future reference.','Parenting Schedule Message','Example conversation preserved with its date and context.'],
- 'Evidence Vault':['Keep original documents and supporting files connected.','School Notice.pdf','Example evidence file linked to a relevant observation.'],
- 'Case Builder':['Prepare organized summaries and reports when needed.','Sample Parenting Case Report','Example report preview; the full demonstration contains the longer report.']};
- compact.querySelectorAll('[data-feature]').forEach(b=>b.addEventListener('click',()=>{compact.querySelectorAll('[data-feature]').forEach(x=>x.classList.toggle('active',x===b));const f=b.dataset.feature;compact.querySelector('#ppds-feature-title').textContent=f;compact.querySelector('#ppds-feature-copy').textContent=examples[f][0];compact.querySelector('#ppds-record-title').textContent=examples[f][1];compact.querySelector('#ppds-record-copy').textContent=examples[f][2];refreshHeight()}));
- const back=d.createElement('div');back.style.cssText='position:fixed;bottom:12px;right:12px;z-index:99999;background:#0c2545;color:#fff;border-radius:9px;padding:8px 12px;font:12px system-ui;box-shadow:0 3px 15px #0003';back.textContent='PREVIEW ONLY · Live website unchanged';d.body.appendChild(back);
- const observer=new ResizeObserver(refreshHeight);observer.observe(d.body);
- setTimeout(refreshHeight,100);setTimeout(refreshHeight,1200);
- }catch(err){document.getElementById('fallback').style.display='block';frame.style.display='none'}
-});
-</script></body></html>
+ <div class="ppds-short-detail" style="background:white;border:1px solid #d5e3f3;border-radius:14px;padding:22px;min-height:180px">
+ <div style="font-size:12px;color:#326bb3;font-weight:800;letter-spacing:1px">PPDS · SAMPLE WORKSPACE</div>
+ <h3 id="short-title" style="font-size:24px;margin:12px 0">Observations</h3>
+ <p id="short-desc">Record important events, dates and details in one organized place.</p>
+ <div style="background:#f2f7fe;padding:15px;border-radius:10px;margin-top:15px"><strong id="short-example">School Event · October 3</strong><div id="short-extra" style="margin-top:6px;font-size:13px;color:#506985">Example observation with related supporting records.</div></div>
+ </div></div>
+ <a href="/demo.html" style="display:block;background:#1e5cc4;color:white;text-align:center;text-decoration:none;border-radius:10px;padding:15px;font-weight:800;max-width:450px;margin:22px auto 0">Explore the Full PPDS Workspace ↗</a>
+ <p style="text-align:center;font-size:12px;color:#59708a">The full demonstration opens separately. <a href="#contact">Continue to Join the Beta</a></p>
+ </div></section>`;
+ page=page.slice(0,start)+compact+page.slice(end+10);
+ page=page.replace(/src="\.\/demo\.html"/g,'src="/demo.html"');
+ const style=`<style id="ppds-v80-fix">
+ #ppds-short-preview button{padding:15px;text-align:left;background:#fff;color:#153154;border:1px solid #cbdcf0;border-radius:10px;font-weight:700;cursor:pointer;font-size:15px}
+ #ppds-short-preview button.chosen{background:#1e5cc4;color:#fff}
+ @media(max-width:650px){#ppds-short-preview{grid-template-columns:1fr!important}#ppds-short-preview .ppds-short-tabs{grid-template-columns:1fr 1fr}#ppds-short-preview button{padding:12px 7px;font-size:12px}}
+ </style>`;
+ const behavior=`<script>(function(){const data={'Observations':['Record important events, dates and details in one organized place.','School Event · October 3','Example observation with related supporting records.'],'Communications':['Keep messages and conversations organized for later reference.','Parenting Schedule Message','Example dated conversation with context.'],'Evidence Vault':['Keep supporting documents and files connected to your records.','School Notice.pdf','Example evidence linked to an observation.'],'Case Builder':['Prepare organized summaries and reports when you need them.','Sample Parenting Case Report','The full demonstration includes the detailed sample report.']};document.querySelectorAll('[data-demo-feature]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-demo-feature]').forEach(x=>x.classList.toggle('chosen',x===b));const key=b.dataset.demoFeature;document.getElementById('short-title').textContent=key;document.getElementById('short-desc').textContent=data[key][0];document.getElementById('short-example').textContent=data[key][1];document.getElementById('short-extra').textContent=data[key][2]}))})();<\/script>`;
+ page=page.replace('</head>',style+'</head>').replace('</body>',behavior+'</body>');
+ document.open();document.write(page);document.close();
+}catch(err){document.getElementById('status').innerHTML='Unable to load the preview: '+String(err.message)+'. <a href="/">Open the live DocuParent website</a>.'}
+})();</script></body></html>
